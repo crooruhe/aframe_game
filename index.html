@@ -2,17 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello, World! - A-Frame</title>
-    <meta name="description" content="Hello, World! - A-Frame">
+    <title>👽</title>
+    <meta name="description" content="A-Frame Game">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
-    <a-scene>
+
+    <!-- <div>&#128125;</div> //alien emoji html dec code--> 
+    <!-- <a-scene>
       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
       <a-sky color="green"></a-sky>
+    </a-scene> -->
+
+    <!-- a-scene handles the set up for a frame -->
+    <a-scene>
+        <!-- <a-box color="red" position="0 2 -5" rotation="70 0 70" scale="2 2 2"></a-box>
+        <a-entity environment="preset: forest; dressingAmount: 300"></a-entity> -->
+        <a-assets>
+            <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+            <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        </a-assets>
+        <a-box color="yellow" position="0 2 -5" rotation="0 45 45" scale="2 2 2" animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"></a-box>
+        <a-plane color="#339" rotation="-90 0 0" width="30" height="30"></a-plane>
+        <a-sky color="red"></a-sky>
+        <a-light type="ambient" color="#445451"></a-light>
+        <a-light type="point" intensity="2" position="2 4 4"></a-light>
     </a-scene>
+    
+
   </body>
 </html>
