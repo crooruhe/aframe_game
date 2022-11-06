@@ -5,11 +5,20 @@
     <title>👽</title>
     <meta name="description" content="A-Frame Game">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script> -->
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.js" integrity="sha512-+E0UhA8ib3H5AlREMX1I0mc3R7HMkQYH+hkkfW47aLGMnVJwod+jJ2jxe94xYyUdqPs9AFDHUxKnJzScEP5cmA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+      import * as CANNON from '../dist/cannon-es.js'
+      import * as THREE from 'https://unpkg.com/three@0.122.0/build/three.module.js'
+
+      const shootVelocity = 15
+      const ballShape = new CANNON.Sphere(0.2)
+      const ballGeometry = new THREE.SphereBufferGeometry(ballShape.radius, 32, 32)
+    </script>
   </head>
   <body>
-    <a-scene>
+    <a-scene physics>
         <!-- <a-box color="red" position="0 2 -5" rotation="70 0 70" scale="2 2 2"></a-box>
         <a-entity environment="preset: forest; dressingAmount: 300"></a-entity> -->
         <a-assets>
@@ -19,7 +28,9 @@
         <a-box color="yellow" position="0 2 -5" rotation="0 45 45" scale="2 2 2" animation="property: object3D.position.y; to: 4.2; dir: alternate; dur: 1000; loop: true"></a-box>
         <a-sphere position="0 6.25 -13" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder position="7 0.75 -19" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-        <a-plane color="#339" rotation="-90 0 0" width="60" height="60"></a-plane>
+      <a-box color="yellow" position="10 2.5 20" rotation="0 45 0" scale=".2 5 7"></a-box>
+      <a-cylinder position="13 2.3 20" radius="1.5" height="4.5" color="#11C65D"></a-cylinder>
+        <a-plane color="#339" rotation="-90 0 0" width="25" height="60"></a-plane>
         <a-sky color="red"></a-sky>
         <a-light type="ambient" color="#445451"></a-light>
         <a-light type="point" intensity="2" position="2 4 4"></a-light>
